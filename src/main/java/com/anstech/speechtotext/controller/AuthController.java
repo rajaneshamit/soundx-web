@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
 import com.anstech.speechtotext.payload.LoginRequest;
 import com.anstech.speechtotext.payload.SignUpRequest;
 import com.anstech.speechtotext.service.UserService;
@@ -17,10 +19,12 @@ public class AuthController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@RequestMapping("/")
-	public String index() {
-		return "index";
+	public ModelAndView welcome() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("index.html");
+		return modelAndView;
 	}
 
 	@PostMapping("/signup")
