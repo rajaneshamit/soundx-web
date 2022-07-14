@@ -20,13 +20,6 @@ public class AuthController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("/")
-	public ModelAndView welcome() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("index.html");
-		return modelAndView;
-	}
-
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
 		ResponseEntity<?> result = this.userService.signUp(signUpRequest);
