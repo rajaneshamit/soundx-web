@@ -3,7 +3,6 @@ package com.anstech.speechtotext.service;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,9 +14,6 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
-
-import javax.management.RuntimeErrorException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
@@ -31,7 +27,6 @@ import com.anstech.speechtotext.enums.SpeechTextType;
 import com.anstech.speechtotext.helper.ResponseUtil;
 import com.anstech.speechtotext.model.Response;
 import com.anstech.speechtotext.repo.SpeechToTextRepository;
-import com.microsoft.cognitiveservices.speech.CancellationReason;
 import com.microsoft.cognitiveservices.speech.ResultReason;
 import com.microsoft.cognitiveservices.speech.SpeechConfig;
 import com.microsoft.cognitiveservices.speech.SpeechRecognitionResult;
@@ -179,11 +174,8 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 		StringBuilder builder = new StringBuilder();
 		SpeechConfig speechConfig = SpeechConfig.fromSubscription(subscriptionKey, regionKey);
 		String filePath = saveFile(file).substring(1);
-		// String substring = filePath.substring(1);
-		System.out.println("filepath ::" + filePath);
 		AudioConfig audioConfig = AudioConfig.fromWavFileInput(filePath);
 		SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-
 		Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
 		SpeechRecognitionResult result = task.get();
 		// VoiceText data = this.speechToTextRepository.findById(id).get();

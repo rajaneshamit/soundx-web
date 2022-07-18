@@ -3,8 +3,6 @@ package com.anstech.speechtotext.service;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import com.anstech.speechtotext.model.Response;
