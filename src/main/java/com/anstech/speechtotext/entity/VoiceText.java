@@ -9,8 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
-@Table(name = "user_content")
+import com.anstech.speechtotext.enums.SpeechTextType;
+
+@Table(name = "voice_data")
 @Entity
 public class VoiceText {
 
@@ -19,7 +22,10 @@ public class VoiceText {
 	private Long id;
 
 	@Column(length = 5000)
+	@NotBlank
 	private String content;
+
+	private SpeechTextType type;
 
 	@ManyToOne
 	private User user;
@@ -29,10 +35,11 @@ public class VoiceText {
 		// TODO Auto-generated constructor stub
 	}
 
-	public VoiceText(Long id, String content, User user) {
+	public VoiceText(Long id, @NotBlank String content, @NotBlank SpeechTextType type, User user) {
 		super();
 		this.id = id;
 		this.content = content;
+		this.type = type;
 		this.user = user;
 	}
 
@@ -60,4 +67,16 @@ public class VoiceText {
 		this.user = user;
 	}
 
+	public SpeechTextType getType() {
+		return type;
+	}
+
+	public void setType(SpeechTextType type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "VoiceText [id=" + id + ", content=" + content + ", type=" + type + ", user=" + user + "]";
+	}
 }

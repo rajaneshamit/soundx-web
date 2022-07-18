@@ -3,22 +3,38 @@ package com.anstech.speechtotext.service;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Semaphore;import org.springframework.beans.factory.annotation.Autowired;
+import java.util.concurrent.Future;
+import java.util.concurrent.Semaphore;
+
+import javax.management.RuntimeErrorException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.anstech.speechtotext.entity.User;
 import com.anstech.speechtotext.entity.VoiceText;
+import com.anstech.speechtotext.enums.SpeechTextType;
 import com.anstech.speechtotext.helper.ResponseUtil;
 import com.anstech.speechtotext.model.Response;
 import com.anstech.speechtotext.repo.SpeechToTextRepository;
+import com.microsoft.cognitiveservices.speech.CancellationReason;
 import com.microsoft.cognitiveservices.speech.ResultReason;
 import com.microsoft.cognitiveservices.speech.SpeechConfig;
+import com.microsoft.cognitiveservices.speech.SpeechRecognitionResult;
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +42,9 @@ import org.springframework.http.MediaType;
 
 @Service
 public class SpeechToTextServiceImpl implements SpeechToTextService {
+	public static final String subscriptionKey = "22684546d3bd43b89942fe1cf982148c";
+	public static final String regionKey = "westus";
+
 	private static Semaphore stopTranslationWithFileSemaphore;
 	private SpeechRecognizer speechRecognizer;
 	private SpeechConfig speechConfig;
@@ -35,6 +54,9 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 	private SpeechToTextRepository speechToTextRepository;
 	@Autowired
 	private FileExporterService fileExporterService;
+
+	@Value("${audiofilepath}")
+	private String audioFilePath;
 
 	@Override
 	public Response speechToText(String subScriptionKey, String regionKey, boolean isSpeaking)
@@ -127,30 +149,67 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 
 	@Override
 	public ResponseEntity<?> saveVoiceText(VoiceText voiceText) {
+		voiceText.setType(SpeechTextType.SPEECH_TO_TEXT);
 		VoiceText save = this.speechToTextRepository.save(voiceText);
-		return ResponseEntity.ok(new ResponseUtil("insert successfully"));
+		return ResponseEntity.ok(new ResponseUtil("insert successfully", "success"));
 	}
 
 	@Override
 	public ResponseEntity<?> downloadVoiceTextFile(Long id) {
 		VoiceText data = this.speechToTextRepository.findById(id).get();
 		String logFileName = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
-		logFileName = "loggerFile_" + logFileName;
+		logFileName = data.getUser().getFirstName() + logFileName;
 		try {
 			Path exportedPath = fileExporterService.export(data.getContent(), logFileName);
 			File exportedFile = exportedPath.toFile();
 			FileInputStream fileInputStream = new FileInputStream(exportedFile);
 			InputStreamResource inputStreamResource = new InputStreamResource(fileInputStream);
-			return ResponseEntity.ok()
-					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + logFileName)
-					.contentType(MediaType.TEXT_PLAIN)
-					.contentLength(exportedFile.length())
-					.body(inputStreamResource);
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + logFileName)
+					.contentType(MediaType.TEXT_PLAIN).contentLength(exportedFile.length()).body(inputStreamResource);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return ResponseEntity.ok(new ResponseUtil("Something went wrong"));
+		return ResponseEntity.ok(new ResponseUtil("Something went wrong", "fail"));
 	}
 
+	@Override
+	public ResponseEntity<?> saveAudioText(MultipartFile file, Long id)
+			throws InterruptedException, ExecutionException, IOException {
+		StringBuilder builder = new StringBuilder();
+		SpeechConfig speechConfig = SpeechConfig.fromSubscription(subscriptionKey, regionKey);
+		String filePath = saveFile(file).substring(1);
+		// String substring = filePath.substring(1);
+		System.out.println("filepath ::" + filePath);
+		AudioConfig audioConfig = AudioConfig.fromWavFileInput(filePath);
+		SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+		Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+		SpeechRecognitionResult result = task.get();
+		// VoiceText data = this.speechToTextRepository.findById(id).get();
+		VoiceText voiceData = new VoiceText();
+		User user = new User();
+		user.setId(id);
+		voiceData.setContent(result.getText());
+		voiceData.setType(SpeechTextType.AUDIO_TO_TEXT);
+		voiceData.setUser(user);
+		this.speechToTextRepository.save(voiceData);
+		return ResponseEntity.ok(new ResponseUtil(String.valueOf(result.getText()), "success"));
+	}
+
+	private String saveFile(MultipartFile file) {
+		Path path = null;
+		try {
+			String fileName = file.getOriginalFilename();
+			if (fileName.contains("..")) {
+				System.out.println("Invalid file");
+			}
+			path = Paths.get(audioFilePath + fileName);
+
+			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return path.toUri().getPath();
+	}
 }
