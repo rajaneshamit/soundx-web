@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'soundx-web-x'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A77F139E9A34400E8290100BDC3CC8D0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0F255D7E35844B97AA305B687E67E380 }}
           package: '*.jar'
