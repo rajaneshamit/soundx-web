@@ -1,0 +1,149 @@
+2022-07-28 16:40:22,795 [background-preinit] INFO  o.h.validator.internal.util.Version                - HV000001: Hibernate Validator 6.2.3.Final
+2022-07-28 16:40:22,813 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Starting SoundexApplication using Java 1.8.0_202 on DESKTOP-3TRH1D5 with PID 19056 (C:\projects\speechtotext\target\classes started by ankur in C:\projects\speechtotext)
+2022-07-28 16:40:22,813 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - The following 1 profile is active: "dev"
+2022-07-28 16:40:22,871 [restartedMain] INFO  o.s.boot.devtools.restart.ChangeableUrls           - The Class-Path manifest attribute in C:\Users\ankur\.m2\repository\com\sun\xml\bind\jaxb-impl\2.2.3-1\jaxb-impl-2.2.3-1.jar referenced one or more files that do not exist: file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-api.jar,file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/activation.jar,file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jsr173_1.0_api.jar,file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb1-impl.jar
+2022-07-28 16:40:22,872 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-28 16:40:22,872 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-28 16:40:23,961 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-28 16:40:24,037 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2022-07-28 16:40:25,270 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9595 (http)
+2022-07-28 16:40:25,281 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9595"]
+2022-07-28 16:40:25,282 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2022-07-28 16:40:25,282 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-28 16:40:25,760 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2022-07-28 16:40:25,760 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2888 ms
+2022-07-28 16:40:26,040 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-28 16:40:26,114 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-28 16:40:26,167 [restartedMain] INFO  org.hibernate.Version                              - HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-28 16:40:26,342 [restartedMain] INFO  org.hibernate.annotations.common.Version           - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-28 16:40:26,489 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Starting...
+2022-07-28 16:40:27,065 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Start completed.
+2022-07-28 16:40:27,086 [restartedMain] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-07-28 16:40:28,234 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-28 16:40:28,243 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-28 16:40:29,313 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:40:29,314 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/v2/api-docs']
+2022-07-28 16:40:29,315 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:40:29,315 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/configuration/ui']
+2022-07-28 16:40:29,315 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/swagger-resources']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:40:29,315 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/swagger-resources']
+2022-07-28 16:40:29,315 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:40:29,315 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/configuration/security']
+2022-07-28 16:40:29,315 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:40:29,315 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/swagger-ui.html']
+2022-07-28 16:40:29,315 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:40:29,315 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/webjars/**']
+2022-07-28 16:40:29,368 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c850e07, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6eb1d10c, org.springframework.security.web.context.SecurityContextPersistenceFilter@72e2d4b8, org.springframework.security.web.header.HeaderWriterFilter@1cc35c7, org.springframework.web.filter.CorsFilter@6609c1b5, org.springframework.security.web.authentication.logout.LogoutFilter@2c79f56b, com.anstech.speechtotext.security.JwtAuthenticationFilter@1a115236, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34d9c509, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26e78348, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7235ac5c, org.springframework.security.web.session.SessionManagementFilter@45e47b81, org.springframework.security.web.access.ExceptionTranslationFilter@2d055acd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49d69323]
+2022-07-28 16:40:29,906 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729
+2022-07-28 16:40:29,913 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver                - Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-07-28 16:40:29,944 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-9595"]
+2022-07-28 16:40:29,963 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 9595 (http) with context path ''
+2022-07-28 16:40:29,979 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Started SoundexApplication in 7.581 seconds (JVM running for 8.736)
+2022-07-28 16:41:12,653 [http-nio-9595-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-28 16:41:12,661 [http-nio-9595-exec-2] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2022-07-28 16:41:12,661 [http-nio-9595-exec-2] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 0 ms
+2022-07-28 16:41:12,830 [http-nio-9595-exec-2] INFO  c.a.s.controller.FileController                    - Cause :: null
+2022-07-28 16:43:21,186 [http-nio-9595-exec-7] INFO  c.a.s.controller.FileController                    - Cause :: null
+2022-07-28 16:45:20,975 [background-preinit] INFO  o.h.validator.internal.util.Version                - HV000001: Hibernate Validator 6.2.3.Final
+2022-07-28 16:45:21,011 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Starting SoundexApplication using Java 1.8.0_202 on DESKTOP-3TRH1D5 with PID 20836 (C:\projects\speechtotext\target\classes started by ankur in C:\projects\speechtotext)
+2022-07-28 16:45:21,012 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - The following 1 profile is active: "dev"
+2022-07-28 16:45:21,092 [restartedMain] INFO  o.s.boot.devtools.restart.ChangeableUrls           - The Class-Path manifest attribute in C:\Users\ankur\.m2\repository\com\sun\xml\bind\jaxb-impl\2.2.3-1\jaxb-impl-2.2.3-1.jar referenced one or more files that do not exist: file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-api.jar,file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/activation.jar,file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jsr173_1.0_api.jar,file:/C:/Users/ankur/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb1-impl.jar
+2022-07-28 16:45:21,092 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-28 16:45:21,092 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-28 16:45:22,682 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-28 16:45:22,790 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 94 ms. Found 3 JPA repository interfaces.
+2022-07-28 16:45:24,207 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9595 (http)
+2022-07-28 16:45:24,225 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9595"]
+2022-07-28 16:45:24,226 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2022-07-28 16:45:24,226 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-28 16:45:24,660 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2022-07-28 16:45:24,661 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 3568 ms
+2022-07-28 16:45:25,054 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-28 16:45:25,165 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-28 16:45:25,266 [restartedMain] INFO  org.hibernate.Version                              - HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-28 16:45:25,527 [restartedMain] INFO  org.hibernate.annotations.common.Version           - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-28 16:45:25,711 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Starting...
+2022-07-28 16:45:26,335 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Start completed.
+2022-07-28 16:45:26,359 [restartedMain] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-07-28 16:45:27,777 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-28 16:45:27,789 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-28 16:45:29,170 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:45:29,172 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/v2/api-docs']
+2022-07-28 16:45:29,172 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:45:29,173 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/configuration/ui']
+2022-07-28 16:45:29,173 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/swagger-resources']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:45:29,173 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/swagger-resources']
+2022-07-28 16:45:29,173 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:45:29,173 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/configuration/security']
+2022-07-28 16:45:29,173 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:45:29,174 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/swagger-ui.html']
+2022-07-28 16:45:29,174 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:45:29,174 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/webjars/**']
+2022-07-28 16:45:29,255 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@36883c72, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75dabf44, org.springframework.security.web.context.SecurityContextPersistenceFilter@e1c6f8, org.springframework.security.web.header.HeaderWriterFilter@524a5fe9, org.springframework.web.filter.CorsFilter@2f11eb8d, org.springframework.security.web.authentication.logout.LogoutFilter@271caca5, com.anstech.speechtotext.security.JwtAuthenticationFilter@566c640e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c516a5b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a5ef6e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cd426a5, org.springframework.security.web.session.SessionManagementFilter@35b34491, org.springframework.security.web.access.ExceptionTranslationFilter@3c6938f5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ac112e9]
+2022-07-28 16:45:30,022 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729
+2022-07-28 16:45:30,035 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver                - Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-07-28 16:45:30,095 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-9595"]
+2022-07-28 16:45:30,127 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 9595 (http) with context path ''
+2022-07-28 16:45:30,146 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Started SoundexApplication in 9.735 seconds (JVM running for 13.596)
+2022-07-28 16:46:12,259 [http-nio-9595-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-28 16:46:12,259 [http-nio-9595-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2022-07-28 16:46:12,260 [http-nio-9595-exec-1] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 1 ms
+2022-07-28 16:51:09,233 [Thread-6] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-28 16:51:09,241 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown initiated...
+2022-07-28 16:51:09,259 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-1 - Shutdown completed.
+2022-07-28 16:51:09,619 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Starting SoundexApplication using Java 1.8.0_202 on DESKTOP-3TRH1D5 with PID 20836 (C:\projects\speechtotext\target\classes started by ankur in C:\projects\speechtotext)
+2022-07-28 16:51:09,620 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - The following 1 profile is active: "dev"
+2022-07-28 16:51:10,068 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-28 16:51:10,096 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 28 ms. Found 3 JPA repository interfaces.
+2022-07-28 16:51:10,309 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9595 (http)
+2022-07-28 16:51:10,310 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9595"]
+2022-07-28 16:51:10,310 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2022-07-28 16:51:10,311 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-28 16:51:10,327 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2022-07-28 16:51:10,327 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 698 ms
+2022-07-28 16:51:10,437 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-28 16:51:10,456 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-28 16:51:10,462 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-2 - Starting...
+2022-07-28 16:51:10,480 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-2 - Start completed.
+2022-07-28 16:51:10,481 [restartedMain] INFO  org.hibernate.dialect.Dialect                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-07-28 16:51:10,583 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-28 16:51:10,584 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-28 16:51:10,868 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:51:10,868 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/v2/api-docs']
+2022-07-28 16:51:10,868 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:51:10,868 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/configuration/ui']
+2022-07-28 16:51:10,868 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/swagger-resources']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:51:10,868 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/swagger-resources']
+2022-07-28 16:51:10,868 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:51:10,868 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/configuration/security']
+2022-07-28 16:51:10,868 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:51:10,868 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/swagger-ui.html']
+2022-07-28 16:51:10,868 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity                 - You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-07-28 16:51:10,869 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will not secure Ant [pattern='/webjars/**']
+2022-07-28 16:51:10,880 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain               - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14e80136, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6fc2c75f, org.springframework.security.web.context.SecurityContextPersistenceFilter@55102962, org.springframework.security.web.header.HeaderWriterFilter@153ab9b7, org.springframework.web.filter.CorsFilter@7ff6f596, org.springframework.security.web.authentication.logout.LogoutFilter@60eb6be7, com.anstech.speechtotext.security.JwtAuthenticationFilter@2b4fb81d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5882aa66, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18b547c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a0e59c0, org.springframework.security.web.session.SessionManagementFilter@7970b5dc, org.springframework.security.web.access.ExceptionTranslationFilter@7dae1630, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b5fe3b]
+2022-07-28 16:51:11,063 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729
+2022-07-28 16:51:11,072 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver                - Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-07-28 16:51:11,099 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Starting ProtocolHandler ["http-nio-9595"]
+2022-07-28 16:51:11,102 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat started on port(s): 9595 (http) with context path ''
+2022-07-28 16:51:11,120 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Started SoundexApplication in 1.58 seconds (JVM running for 354.57)
+2022-07-28 16:51:11,125 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener  - Condition evaluation unchanged
+2022-07-28 16:51:18,865 [http-nio-9595-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-28 16:51:18,868 [http-nio-9595-exec-4] INFO  o.s.web.servlet.DispatcherServlet                  - Initializing Servlet 'dispatcherServlet'
+2022-07-28 16:51:18,870 [http-nio-9595-exec-4] INFO  o.s.web.servlet.DispatcherServlet                  - Completed initialization in 2 ms
+2022-07-28 16:52:30,192 [http-nio-9595-exec-7] INFO  c.a.s.controller.FileController                    - Cause :: java.nio.file.NoSuchFileException: C:\projects\speechtotext\316471b4-1ae8-4371-a0a3-71eacffa8381ae.txt
+2022-07-28 16:53:55,170 [Thread-19] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-28 16:53:55,173 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-2 - Shutdown initiated...
+2022-07-28 16:53:55,190 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-2 - Shutdown completed.
+2022-07-28 16:53:55,597 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - Starting SoundexApplication using Java 1.8.0_202 on DESKTOP-3TRH1D5 with PID 20836 (C:\projects\speechtotext\target\classes started by ankur in C:\projects\speechtotext)
+2022-07-28 16:53:55,598 [restartedMain] INFO  c.a.speechtotext.SoundexApplication                - The following 1 profile is active: "prod"
+2022-07-28 16:53:56,134 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-28 16:53:56,170 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2022-07-28 16:53:56,391 [restartedMain] INFO  o.s.b.w.embedded.tomcat.TomcatWebServer            - Tomcat initialized with port(s): 9898 (http)
+2022-07-28 16:53:56,392 [restartedMain] INFO  o.apache.coyote.http11.Http11NioProtocol           - Initializing ProtocolHandler ["http-nio-9898"]
+2022-07-28 16:53:56,393 [restartedMain] INFO  org.apache.catalina.core.StandardService           - Starting service [Tomcat]
+2022-07-28 16:53:56,393 [restartedMain] INFO  org.apache.catalina.core.StandardEngine            - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-28 16:53:56,409 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]                 - Initializing Spring embedded WebApplicationContext
+2022-07-28 16:53:56,410 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 806 ms
+2022-07-28 16:53:56,514 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-28 16:53:56,539 [restartedMain] INFO  o.hibernate.jpa.internal.util.LogHelper            - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-28 16:53:56,545 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource                 - HikariPool-3 - Starting...
