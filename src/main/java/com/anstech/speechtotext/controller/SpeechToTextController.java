@@ -32,8 +32,8 @@ public class SpeechToTextController {
 	SpeechToTextService speechToTextService;
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/speect-to-text")
-	public Response speechToText() {
+	@GetMapping("/speect-to-text/{id}")
+	public Response speechToText(@PathVariable("id") Long id) {
 
 		boolean isSpeaking = true;
 		Response response = null;
@@ -50,8 +50,8 @@ public class SpeechToTextController {
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/stop-recognition")
-	public Response stopRecognition() {
+	@GetMapping("/stop-recognition/{id}")
+	public Response stopRecognition(@PathVariable("id") Long id) {
 		Response response = null;
 		try {
 			boolean isSpeaking = false;

@@ -15,21 +15,23 @@ import com.anstech.speechtotext.model.Response;
 import com.anstech.speechtotext.service.FileReaderService;
 
 @RestController
-@RequestMapping("/rest/api")
+@RequestMapping("/api/auth")
 public class FileController {
-	
+
 	@Autowired
 	FileReaderService readerService;
-	
-	@GetMapping("read-text")
+
+	@GetMapping("read-text/{fileName}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Response readFileData() {
+	public Response readFileData(@PathVariable("fileName") String fileName) {
 		Response response = null;
 		try {
-			response = readerService.readFileData();
+			response = readerService.readFileData(fileName);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			response = new Response();
+			response.setMessage("Fail");
+			response.setDescription("Invalid file name "+e.getMessage());
+			response.setStatusCode("200");
 		}
 		return response;
 	}

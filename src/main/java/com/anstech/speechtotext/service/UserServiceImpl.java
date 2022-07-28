@@ -99,7 +99,7 @@ public class UserServiceImpl implements UserService {
 		}
 		Optional<User> user = this.userRepository.findByMobileOrEmail(loginRequest.getMobileOrEmail(),
 				loginRequest.getMobileOrEmail());
-		if (!user.isEmpty()) {
+		if (user.isPresent()) {
 			userObj = user.get();
 		}
 		UserResponse userDetails = new UserResponse(userObj.getId(), userObj.getFirstName(), userObj.getLastName(),

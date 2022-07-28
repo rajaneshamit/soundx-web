@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
@@ -20,16 +21,15 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.anstech.speechtotext.entity.User;
 import com.anstech.speechtotext.entity.VoiceText;
 import com.anstech.speechtotext.enums.SpeechTextType;
+import com.anstech.speechtotext.helper.AudioToTextUtil;
 import com.anstech.speechtotext.helper.ResponseUtil;
 import com.anstech.speechtotext.model.Response;
 import com.anstech.speechtotext.repo.SpeechToTextRepository;
 import com.microsoft.cognitiveservices.speech.ResultReason;
 import com.microsoft.cognitiveservices.speech.SpeechConfig;
-import com.microsoft.cognitiveservices.speech.SpeechRecognitionResult;
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import org.springframework.http.HttpHeaders;
@@ -37,8 +37,6 @@ import org.springframework.http.MediaType;
 
 @Service
 public class SpeechToTextServiceImpl implements SpeechToTextService {
-	public static final String subscriptionKey = "22684546d3bd43b89942fe1cf982148c";
-	public static final String regionKey = "westus";
 
 	private static Semaphore stopTranslationWithFileSemaphore;
 	private SpeechRecognizer speechRecognizer;
@@ -49,9 +47,9 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 	private SpeechToTextRepository speechToTextRepository;
 	@Autowired
 	private FileExporterService fileExporterService;
-
-	@Value("${audiofilepath}")
-	private String audioFilePath;
+	
+	@Value("${filepath}")
+	private String filePath;
 
 	@Override
 	public Response speechToText(String subScriptionKey, String regionKey, boolean isSpeaking)
@@ -70,6 +68,9 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 			audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 		}
 		System.out.println("speechRecognizer ::" + speechRecognizer);
+		// pick a conversation Id that is a GUID.
+		String conversationId = UUID.randomUUID().toString();
+		System.out.println("uuid ::"+conversationId);
 		if (speechRecognizer == null) {
 			System.out.println("insideee@@@@@@ null to create session");
 			speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
@@ -83,7 +84,7 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 					response.setStatusCode("200");
 					response.setDescription(e.getResult().getText());
 					System.out.println(Thread.currentThread().getName() + ": " + e.getResult().getText());
-					writeData(e.getResult().getText(), isSpeaking);
+					writeData(e.getResult().getText(), isSpeaking,conversationId);
 					if (e.getResult().getText().equalsIgnoreCase("Thank you.")) {
 						System.out.println("inside thank you");
 						speechRecognizer.close();
@@ -108,26 +109,31 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 			speechRecognizer.close();
 			speechRecognizer = null;
 			audioConfig = null;
-			File file = new File("D://home//projects//speechtotext//file.txt");
-			file.delete();
-			if (!file.exists()) {
-				try {
-					file.createNewFile();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+//			File file = new File("D://home//projects//speechtotext//file.txt");
+//			file.delete();
+//			if (!file.exists()) {
+//				try {
+//					file.createNewFile();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
 		}
+		response.setMessage("Success");
+		response.setDescription(conversationId);
+		response.setStatusCode("200");
 		return response;
 
 		// System.exit(0);
 	}
 
-	private void writeData(String data, boolean isSpeaking) {
-		File file = new File("D://home//projects//speechtotext//file.txt");
-
+	private void writeData(String data, boolean isSpeaking,String conversationId) {
+		File file = new File(filePath+conversationId+".txt");
 		try {
+			if(!file.exists()) {
+				file.createNewFile();
+			}
 			if (isSpeaking) {
 				FileWriter fileWriter = new FileWriter(file, true);
 
@@ -171,37 +177,15 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 	@Override
 	public ResponseEntity<?> saveAudioText(MultipartFile file, Long id)
 			throws InterruptedException, ExecutionException, IOException {
-		StringBuilder builder = new StringBuilder();
-		SpeechConfig speechConfig = SpeechConfig.fromSubscription(subscriptionKey, regionKey);
-		String filePath = saveFile(file).substring(1);
-		AudioConfig audioConfig = AudioConfig.fromWavFileInput(filePath);
-		SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-		Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
-		SpeechRecognitionResult result = task.get();
-		// VoiceText data = this.speechToTextRepository.findById(id).get();
+		AudioToTextUtil audioToTextUtil = new AudioToTextUtil();
+		String result = audioToTextUtil.saveAudio(file, id);
 		VoiceText voiceData = new VoiceText();
 		User user = new User();
 		user.setId(id);
-		voiceData.setContent(result.getText());
+		voiceData.setContent(result);
 		voiceData.setType(SpeechTextType.AUDIO_TO_TEXT);
 		voiceData.setUser(user);
 		this.speechToTextRepository.save(voiceData);
-		return ResponseEntity.ok(new ResponseUtil(String.valueOf(result.getText()), "success"));
-	}
-
-	private String saveFile(MultipartFile file) {
-		Path path = null;
-		try {
-			String fileName = file.getOriginalFilename();
-			if (fileName.contains("..")) {
-				System.out.println("Invalid file");
-			}
-			path = Paths.get(audioFilePath + fileName);
-
-			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return path.toUri().getPath();
-	}
+		return ResponseEntity.ok(new ResponseUtil(result, "success"));
+	}		
 }

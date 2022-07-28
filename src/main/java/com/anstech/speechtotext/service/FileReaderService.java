@@ -5,5 +5,5 @@ import com.anstech.speechtotext.model.Response;
 
 public interface FileReaderService {
 
-	public Response readFileData() throws IOException;
+	public Response readFileData(String fileName) throws IOException;
 }
